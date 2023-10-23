@@ -1,0 +1,40 @@
+.new-professor-container {
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.new-professor-container header {
+    display: flex;
+    align-items: center;
+}
+
+.new-professor-container header span {
+    font-size: 20px;
+    margin-left: 24px;
+}
+
+.new-professor-container header span strong {
+    color: #251fc5;
+}
+
+.new-professor-container header img {
+    height: 64px;
+}
+
+.new-professor-container header a {
+    width: 260px;
+    margin-left: auto;
+    margin-top: 0;
+}
+
+.new-professor-container .content form {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 20px;
+}
+
+.new-professor-container .content form input {
+    margin-top: 8px; 
+}
