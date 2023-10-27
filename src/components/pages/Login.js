@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styles.css';
-
-import api from '../../services/api'
+import styles from './Login.module.css'
+import api from '../../components/services/api'
 
 import logoImage from '../../assets/logoEscola.png'
+import Input from '../form/Input';
+import SubmitButton from '../form/SubmitButton';
 
 export default function Login() {
 
@@ -25,30 +26,35 @@ export default function Login() {
             localStorage.setItem('login', login);
             localStorage.setItem('token', response.data.token);
 
-            navigate('/professores');
+            navigate('/home');
         } catch (error) {
             alert("Falha ao Logar!! Tente novamente!");
         }
-    };
+    }
 
     return (
-        <div className='login-container'>
-            <section className='form'>
+        <div className={styles.login_container}>
+            <section className={styles.form}>
                 <img src={logoImage} alt='logoEscola' />
                 <form onSubmit={efetuarLogin}>
-                    <h1> Login... </h1>
-                    <input
-                        placeholder='Username'
+                    <Input
+                        type="text"
+                        text="Nome usuário"
+                        name="login"
+                        placeholder="Digite o login..."
+                        handleOnChange={e => setLogin(e.target.value)}
                         value={login}
-                        onChange={e => setLogin(e.target.value)}
                     />
-                    <input
-                        type='password' placeholder='Password'
+                    <Input
+                        type="password"
+                        text="Password"
+                        name="senha"
+                        placeholder="Digite a senha..."
+                        handleOnChange={e => setSenha(e.target.value)}
                         value={senha}
-                        onChange={e => setSenha(e.target.value)}
                     />
 
-                    <button className='button' type='submit'>Login</button>
+                    <SubmitButton type='submit' text='Login' />
                 </form>
             </section>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi'
 
-import './styles.css';
+import './Professor.module.css';
 
 import logoEscola from '../../assets/logoEscola.png'
 
