@@ -5,7 +5,6 @@ import './styles.css';
 import api from '../../services/api'
 
 import logoImage from '../../assets/logoEscola.png'
-import padlock from '../../assets/padlock.png'
 
 export default function Login() {
 
@@ -35,7 +34,7 @@ export default function Login() {
     return (
         <div className='login-container'>
             <section className='form'>
-                <img src={padlock} alt='PadLock'></img>
+                <img src={logoImage} alt='logoEscola' />
                 <form onSubmit={efetuarLogin}>
                     <h1> Login... </h1>
                     <input
@@ -52,7 +51,6 @@ export default function Login() {
                     <button className='button' type='submit'>Login</button>
                 </form>
             </section>
-            <img src={logoImage} alt='logoEscola'></img>
         </div>
     );
 }
