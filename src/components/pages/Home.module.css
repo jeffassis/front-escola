@@ -1,0 +1,13 @@
+
+.home_container {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 100px;
+}
+
+.home_container img {
+    display: flex;
+    width: 100%;
+}
