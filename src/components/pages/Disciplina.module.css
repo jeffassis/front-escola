@@ -1,0 +1,17 @@
+.Container{
+    width: 450px;
+    
+    margin: 0 auto;
+    margin-bottom: 0.5em;
+    padding: 3em;
+    
+}
+
+.Container h1{
+    justify-content: center;
+    margin-bottom: 0.5em;
+}
+
+.Container form button{
+    margin-bottom: 3em;
+}

@@ -9,5 +9,7 @@
 
 .home_container img {
     display: flex;
+    max-width: 1120em;
     width: 100%;
+    height: 90vh;
 }
