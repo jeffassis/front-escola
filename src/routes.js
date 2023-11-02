@@ -8,6 +8,8 @@ import Professor from './components/pages/Professor';
 import Navbar from './components/layout/Navbar'
 import ShowNavbar from './components/layout/ShowNavbar'
 import Disciplina from './components/pages/Disciplina'
+import Turmas from './components/pages/Turmas'
+import Turma from './components/pages/Turma'
 
 export default function AppRoutes() {
     return (
@@ -20,7 +22,9 @@ export default function AppRoutes() {
                 <Route path='/home' element={<Home />} />
                 <Route path='/professores' element={<Professores />} />
                 <Route path='/professor' element={<Professor />} />
-                <Route path='/disciplinas' element={<Disciplina />} />                
+                <Route path='/disciplinas' element={<Disciplina />} />
+                <Route path='/turmas' element={<Turmas />} />
+                <Route path='/turma' element={<Turma />} />
 
             </Routes>
         </BrowserRouter>
