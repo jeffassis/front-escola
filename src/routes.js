@@ -6,6 +6,7 @@ import Footer from './components/layout/Footer'
 
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
+import Alunos from './components/pages/Alunos';
 import Professores from './components/pages/Professores';
 import Professor from './components/pages/Professor';
 import ShowNavbar from './components/layout/ShowNavbar'
@@ -22,6 +23,7 @@ export default function AppRoutes() {
             <Routes>
                 <Route path='/' exact element={<Login />} />
                 <Route path='/home' element={<Home />} />
+                <Route path='/alunos' element={<Alunos />} />
                 <Route path='/professores' element={<Professores />} />
                 <Route path='/professor' element={<Professor />} />
                 <Route path='/disciplinas' element={<Disciplina />} />

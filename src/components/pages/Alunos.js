@@ -1,34 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import styles from './Professores.module.css'
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import styles from './Alunos.module.css'
+import { Link } from 'react-router-dom';
 import { FiTrash2, FiEdit } from 'react-icons/fi'
-import api from '../../components/services/api'
 
-function Professores() {
-
+function Alunos() {
     // Recuperar token
     const token = localStorage.getItem('token');
 
-    const [professores, setProfessores] = useState([]);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        api.get('professores', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then(response => {
-            setProfessores(response.data.content)
-        })
-    }, []);
+    const [alunos, setAlunos] = useState([]);
 
     return (
         <div className={styles.Container}>
             <div className={styles.form}>
-                <h1>Lista de Professores</h1>
-                <Link className={styles.button} to="/professor" >
+                <h1>Lista de Alunos</h1>
+                <Link className={styles.button} to="/aluno" >
                     <button type='button' >
-                        Add Professor
+                        Add Aluno
                     </button>
                 </Link>
             </div>
@@ -37,7 +24,7 @@ function Professores() {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Professores</th>
+                            <th>Alunos</th>
                             <th>Email</th>
                             <th>Telefone</th>
                             <th>Ações</th>
@@ -45,12 +32,12 @@ function Professores() {
                     </thead>
                     <tbody>
                         {
-                            professores.map((professor, indice) => (
+                            alunos.map((aluno, indice) => (
                                 <tr key={indice}>
                                     <td>{indice + 1}</td>
-                                    <td>{professor.nome}</td>
-                                    <td>{professor.email}</td>
-                                    <td>{professor.telefone}</td>
+                                    <td>{aluno.nome}</td>
+                                    <td>{aluno.email}</td>
+                                    <td>{aluno.telefone}</td>
                                     <td>
                                         <button
                                             type="button">
@@ -71,4 +58,4 @@ function Professores() {
     );
 }
 
-export default Professores;
+export default Alunos;
