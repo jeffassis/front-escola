@@ -28,7 +28,7 @@ function Turmas() {
     return (
         <div className={styles.Container}>
             <div className={styles.form}>
-                <h1>Cadastro de Turmas</h1>
+                <h1>Lista de Turmas</h1>
                 <Link className={styles.button} to="/turma" >
                     <button type='button' >
                         Add Turma
