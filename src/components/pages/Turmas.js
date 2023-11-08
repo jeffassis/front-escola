@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from './Turmas.module.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiTrash2, FiEdit } from 'react-icons/fi'
 import api from '../../components/services/api'
 
@@ -9,6 +9,7 @@ function Turmas() {
     const token = localStorage.getItem('token');
 
     const [turmas, setTurmas] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         api.get('turmas', {
@@ -25,11 +26,32 @@ function Turmas() {
         })
     }, []);
 
+    async function editarTurma(id) {        
+        try {
+            navigate(`/turma/${id}`)
+        } catch (error) {
+            alert('Houve uma falha ao Editar!')
+        }
+    }
+
+    async function deleteTurma(id) {
+        try {
+            await api.delete(`turmas/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },
+            })
+            setTurmas(turmas.filter(turma => turma.id !== id))
+        } catch (error) {
+            alert('Houve uma falha ao Excluir!')
+        }
+    }
+
     return (
         <div className={styles.Container}>
             <div className={styles.form}>
                 <h1>Lista de Turmas</h1>
-                <Link className={styles.button} to="/turma" >
+                <Link className={styles.button} to="/turma/0" >
                     <button type='button' >
                         Add Turma
                     </button>
@@ -57,8 +79,12 @@ function Turmas() {
                                     <td>{turma.turno}</td>
                                     <td>{turma.ano}</td>
                                     <td>
-                                        <button><FiEdit size={17} /></button>
-                                        <button><FiTrash2 size={17} /></button>
+                                        <button onClick={() => editarTurma(turma.id)} type="button">
+                                            <FiEdit size={17} />
+                                        </button>
+                                        <button onClick={() => deleteTurma(turma.id)} type="button">
+                                            <FiTrash2 size={17} />
+                                        </button>
                                     </td>
                                 </tr>
                             ))
